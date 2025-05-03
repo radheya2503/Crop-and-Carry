@@ -1,0 +1,247 @@
+/*====================================================================
+  CROP‑AND‑CARRY  –  MySQL‑8 schema (InnoDB, utf8mb4)
+====================================================================*/
+CREATE DATABASE IF NOT EXISTS crop_and_carryf
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_unicode_ci;
+USE crop_and_carryf;
+
+-- Helper: all tables will inherit the DB default charset/collation
+SET NAMES utf8mb4;
+
+/*──────────────────────── 1. USERS ────────────────────────*/
+CREATE TABLE IF NOT EXISTS users (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    user_code    VARCHAR(20) UNIQUE,       -- optional external ID
+    name         VARCHAR(255) NOT NULL,
+    email        VARCHAR(255) UNIQUE,
+    password     VARCHAR(255) NOT NULL,
+    age          INT,
+    created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+/*──────────────────────── 2. CUSTOMER ─────────────────────*/
+CREATE TABLE IF NOT EXISTS customer (
+    customer_id      INT AUTO_INCREMENT PRIMARY KEY,
+    user_id          INT NOT NULL,
+    name             VARCHAR(100),
+    email            VARCHAR(100),
+    phone_number     VARCHAR(15),
+    address          VARCHAR(255),
+    wishlist         TEXT,
+    payment_method   VARCHAR(100),
+    delivery_address TEXT,
+    loyalty_points   INT DEFAULT 0,
+    order_history    TEXT,
+    total_price      DECIMAL(10,2) DEFAULT 0,
+    CONSTRAINT fk_customer_user
+      FOREIGN KEY (user_id) REFERENCES users(id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 3. FARMER ───────────────────────*/
+CREATE TABLE IF NOT EXISTS farmer (
+    farmer_id        INT AUTO_INCREMENT PRIMARY KEY,
+    user_id          INT NOT NULL,
+    name             VARCHAR(100),
+    email            VARCHAR(100),
+    phone_number     VARCHAR(15),
+    address          VARCHAR(255),
+    aadhar_number    VARCHAR(20),
+    farm_location    TEXT,
+    products_offered TEXT,
+    ratings          INT,
+    equipment_info   TEXT,
+    CONSTRAINT fk_farmer_user
+      FOREIGN KEY (user_id) REFERENCES users(id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 4. MARKET ───────────────────────*/
+CREATE TABLE IF NOT EXISTS market (
+    product_id   INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100),
+    added_date   DATE,
+    discount     DECIMAL(10,2) DEFAULT 0,
+    price        DECIMAL(10,2) NOT NULL,
+    quantity     INT,
+    category     VARCHAR(50),
+    farmer_id    INT NOT NULL,
+    CONSTRAINT fk_market_farmer
+      FOREIGN KEY (farmer_id) REFERENCES farmer(farmer_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 5. PRODUCT_STOCK ────────────────*/
+CREATE TABLE IF NOT EXISTS product_stock (
+    stock_id           INT AUTO_INCREMENT PRIMARY KEY,
+    quantity_remaining INT,
+    quantity_added     INT,
+    quantity_sold      INT,
+    expiry_date        DATE,
+    product_id         INT NOT NULL,
+    CONSTRAINT fk_stock_product
+      FOREIGN KEY (product_id) REFERENCES market(product_id)
+      ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+/*──────────────────────── 6. NOTIFICATION ────────────────*/
+CREATE TABLE IF NOT EXISTS notification (
+    notification_id  INT AUTO_INCREMENT PRIMARY KEY,
+    notification_type VARCHAR(50),
+    status            VARCHAR(50),
+    read_at           DATE,
+    created_at        DATE,
+    message           TEXT,
+    priority_level    VARCHAR(50),
+    user_id           INT NOT NULL,
+    CONSTRAINT fk_notification_user
+      FOREIGN KEY (user_id) REFERENCES users(id)
+      ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+/*──────────────────────── 7. CUSTOMER_SUPPORT ─────────────*/
+CREATE TABLE IF NOT EXISTS customer_support (
+    support_id     INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_date    DATE,
+    priority       VARCHAR(50),
+    issue_details  TEXT,
+    status         VARCHAR(50),
+    issue_category VARCHAR(50),
+    user_id        INT NOT NULL,
+    CONSTRAINT fk_support_user
+      FOREIGN KEY (user_id) REFERENCES users(id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 8. REVIEWS ──────────────────────*/
+CREATE TABLE IF NOT EXISTS reviews (
+    review_id    INT AUTO_INCREMENT PRIMARY KEY,
+    feedback     TEXT,
+    ratings      INT,
+    comments     TEXT,
+    review_date  DATE,
+    customer_id  INT,
+    CONSTRAINT fk_reviews_customer
+      FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+      ON UPDATE CASCADE ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+/*──────────────────────── 9. RENTAL_EQUIPMENTS ───────────*/
+CREATE TABLE IF NOT EXISTS rental_equipments (
+    equipment_id           INT AUTO_INCREMENT PRIMARY KEY,
+    equip_name             VARCHAR(100),
+    rental_price           DECIMAL(10,2),
+    availability_status    TINYINT(1),
+    description            TEXT,
+    rental_duration_limit  INT,
+    added_date             DATE,
+    farmer_id              INT,
+    CONSTRAINT fk_rentaleq_farmer
+      FOREIGN KEY (farmer_id) REFERENCES farmer(farmer_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 10. EQUIPMENT_BOOKING ───────────*/
+CREATE TABLE IF NOT EXISTS equipment_booking (
+    booking_id          INT AUTO_INCREMENT PRIMARY KEY,
+    rental_equipment_id INT,
+    customer_id         INT,
+    start_date          DATE,
+    end_date            DATE,
+    total_price         DECIMAL(10,2),
+    confirmation_status TINYINT(1),
+    payment_status      ENUM('Pending','Completed','Failed') DEFAULT 'Pending',
+    cancel_policy       TEXT,
+    created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_booking_equipment
+      FOREIGN KEY (rental_equipment_id) REFERENCES rental_equipments(equipment_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_booking_customer
+      FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 11. ORDERDETAILS ───────────────*/
+CREATE TABLE IF NOT EXISTS orderdetails (
+    order_id       INT AUTO_INCREMENT PRIMARY KEY,
+    product_id     INT,
+    customer_id    INT,
+    confirmation   ENUM('Pending','Confirmed','Shipped','Delivered') DEFAULT 'Pending',
+    payment_id     VARCHAR(50),
+    customer_name  VARCHAR(100),
+    order_time     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_orderdetails_product
+      FOREIGN KEY (product_id) REFERENCES market(product_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_orderdetails_customer
+      FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 12. TRANSACTIONS ───────────────*/
+CREATE TABLE IF NOT EXISTS `transactions` (      -- back‑ticked (reserved word)
+    transaction_id  INT AUTO_INCREMENT PRIMARY KEY,
+    total_amount    DECIMAL(10,2),
+    delivery_address TEXT,
+    status          VARCHAR(50),
+    txn_date        DATE,
+    txn_time        TIME,
+    order_id        INT,
+    CONSTRAINT fk_transaction_order
+      FOREIGN KEY (order_id) REFERENCES orderdetails(order_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 13. SHIPPING_PARTNER ───────────*/
+CREATE TABLE IF NOT EXISTS shipping_partner (
+    shipping_id        INT AUTO_INCREMENT PRIMARY KEY,
+    service_name       VARCHAR(100),
+    partner_name       VARCHAR(100),
+    tracking_system_url TEXT,
+    email              VARCHAR(255),
+    contact_number     VARCHAR(15),
+    order_id           INT,
+    CONSTRAINT fk_shipping_partner_order
+      FOREIGN KEY (order_id) REFERENCES orderdetails(order_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 14. RECEIPT ─────────────────────*/
+CREATE TABLE IF NOT EXISTS receipt (
+    receipt_id      INT AUTO_INCREMENT PRIMARY KEY,
+    order_id        INT,
+    transaction_id  INT,
+    total_price     DECIMAL(10,2),
+    total_items     INT,
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_receipt_order
+      FOREIGN KEY (order_id) REFERENCES orderdetails(order_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_receipt_transaction
+      FOREIGN KEY (transaction_id) REFERENCES `transactions`(transaction_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+/*──────────────────────── 15. CART ───────────────────────*/
+CREATE TABLE IF NOT EXISTS cart (
+    cart_id        INT AUTO_INCREMENT PRIMARY KEY,
+    quantity       INT,
+    price          DECIMAL(10,2),
+    date_added     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    promotion_code VARCHAR(50),
+    customer_id    INT,
+    booking_id     INT,
+    product_id     INT,
+    product_name   VARCHAR(255),
+    total_price    DECIMAL(10,2),
+    CONSTRAINT fk_cart_customer
+      FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+      ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_cart_booking
+      FOREIGN KEY (booking_id) REFERENCES equipment_booking(booking_id)
+      ON UPDATE CASCADE ON DELETE SET NULL,
+    CONSTRAINT fk_cart_product
+      FOREIGN KEY (product_id) REFERENCES market(product_id)
+      ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
