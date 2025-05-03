@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - FarmConnect</title>
+    <!-- Link to the Services-specific CSS -->
+    <link rel="stylesheet" href="services.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #2c6e49;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        /* Services Section */
+        .services-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .service-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px; /* Fixed width for uniformity */
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+
+        .service-box img {
+            width: 100%;
+            border-radius: 8px 8px 0 0; /* Rounded corners for the image */
+        }
+
+        .service-box h3 {
+            font-size: 1.5em;
+            color: #2c6e49;
+            margin: 15px 0;
+        }
+
+        .service-box p {
+            padding: 0 15px 15px;
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c6e49;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Services</h1>
+        <p>Choose a service below to explore details:</p>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="service-box" onclick="window.location.href='disease-solution.html'">
+            <img src="images/crop1.jpg" alt="Disease Solution">
+            <h3>Disease Solution</h3>
+            <p>Find immediate solutions for crop diseases and pests.</p>
+        </div>
+
+        <div class="service-box" onclick="window.location.href='rental.html'">
+            <img src="images/tractor.jpg" alt="Rental Services">
+            <h3>Rental Services</h3>
+            <p>Rent tractors and other farming equipment.</p>
+        </div>
+
+        <div class="service-box" onclick="window.location.href='market.html'">
+            <img src="images/market.jpg" alt="Market">
+            <h3>Market</h3>
+            <p>Buy and sell fresh vegetables, fruits, and other produce.</p>
+        </div>
+
+        <div class="service-box" onclick="window.location.href='weather.html'">
+            <img src="images/weather.jpg" alt="Weather Services">
+            <h3>Weather Services</h3>
+            <p>Get real-time weather updates and farming forecasts.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FarmConnect. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Payment - FarmConnect</title>
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="images/logo.png" alt="FarmConnect Logo" width="120">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="market.html">Market</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html" class="active">Orders</a></li>
+            <li><a href="transactions.html">Transactions</a></li>
+        </ul>
+    </nav>
+
+    <!-- Order Summary Section -->
+    <div class="container">
+        <h1>Order Summary</h1>
+        <div class="order-summary">
+            <div id="orderItems"></div>
+            <div class="total">Total Amount: ₹<span id="totalAmount">0</span></div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <h2>Select Payment Method</h2>
+            <button onclick="selectPayment('Google Pay')">Pay with Google Pay</button>
+            <button onclick="selectPayment('PhonePe')">Pay with PhonePe</button>
+            <button onclick="selectPayment('Paytm')">Pay with Paytm</button>
+        </div>
+
+        <!-- Order Tracking Section -->
+        <div id="trackingSection" style="display: none;">
+            <h2>Order Confirmed!</h2>
+            <p>Expected Delivery: <span id="expectedDelivery">2-3 days</span></p>
+        </div>
+    </div>
+
+    <script src="orders.js"></script>
+
+</body>
+</html>

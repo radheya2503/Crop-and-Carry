@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop&Carry - My Crops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Lato', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header and Navigation */
+    header {
+      background-color: #28a745;
+      color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #e6e6e6;
+    }
+
+    /* My Crops Content */
+    .my-crops {
+      padding: 60px 20px;
+    }
+
+    .my-crops h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .crop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .crop-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .crop-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .crop-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .crop-card p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .crop-card a {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+
+    .crop-card a:hover {
+      background-color: #218838;
+    }
+
+    /* Crop Disease Solution */
+    .crop-disease-solution {
+      background-color: #f8f9fa;
+      padding: 60px 20px;
+      margin-top: 40px;
+    }
+
+    .crop-disease-solution h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .disease-solution-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .disease-solution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .disease-solution-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .disease-solution-card p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .disease-solution-card a {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+
+    .disease-solution-card a:hover {
+      background-color: #218838;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-content p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .footer-content ul {
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-content ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .footer-content ul li a:hover {
+      color: #e6e6e6;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="farmer-index.html">Crop&Carry</a>
+    </div>
+    <ul>
+      <li><a href="farmer-index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="mycrops.html">My Crops</a></li>
+      <li><a href="farmer-profile.html">Profile</a></li>
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="my-crops">
+    <h1>My Crops</h1>
+    <div class="crop-grid">
+      <div class="crop-card">
+        <h3>Tomatoes</h3>
+        <p>Organic, high-quality tomatoes ready for harvesting.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="crop-card">
+        <h3>Potatoes</h3>
+        <p>Fresh, locally-grown potatoes perfect for your kitchen.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="crop-card">
+        <h3>Carrots</h3>
+        <p>Crunchy and flavorful carrots, perfect for your salads.</p>
+        <a href="#">View Details</a>
+      </div>
+    </div>
+
+    <section class="crop-disease-solution">
+      <h2>Crop Disease Solution</h2>
+      <div class="disease-solution-card">
+        <h3>Explore Now!</h3>
+        <p>Access our comprehensive guide on identifying and treating common crop diseases.</p>
+        <a href="#">Explore Now</a>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Crop&Carry. All rights reserved.</p>
+    <ul>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="my-crops.js"></script>
+</body>
+</html>

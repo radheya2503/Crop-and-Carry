@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add Items</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Admin Form Section -->
+    <section class="admin-form">
+        <h1>Admin Panel - Add New Item</h1>
+        <form id="add-item-form">
+            <div class="form-group">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" name="item-name" required>
+            </div>
+            <div class="form-group">
+                <label for="item-price">Price:</label>
+                <input type="number" id="item-price" name="item-price" required>
+            </div>
+            <div class="form-group">
+                <label for="item-description">Description:</label>
+                <textarea id="item-description" name="item-description" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Add Item</button>
+        </form>
+
+        <div id="response-message"></div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        const form = document.getElementById('add-item-form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const itemName = document.getElementById('item-name').value;
+            const itemPrice = document.getElementById('item-price').value;
+            const itemDescription = document.getElementById('item-description').value;
+
+            const response = await fetch('/add-item', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ itemName, itemPrice, itemDescription })
+            });
+
+            const data = await response.json();
+
+            const messageDiv = document.getElementById('response-message');
+            if (response.ok) {
+                messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+            } else {
+                messageDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

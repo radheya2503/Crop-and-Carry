@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CroP & CarrY - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="images/logo.png" alt="Crop&Carry Logo">
+        </div>
+        <div class="site-name">
+            <h1>Crop & Carry</h1>
+            <p>Your One-Stop Platform for Smarter Farming</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index-after-login.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="market.html">Market</a></li>
+            <li><a href="rental.html">Rentals</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+        </ul>
+        
+        <!-- Logout Button for Logged-in Users -->
+        <button class="logout-btn" id="logout-btn">Logout</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome Back to Crop & Carry</h1>
+            <p>Manage your crops, track the weather, rent equipment, and more.</p>
+            <!-- Action Button after login -->
+            <button id="dashboard-btn" class="subscribe-btn">Go to Dashboard</button>
+        </div>
+    </section>
+
+    <!-- Featured Services Section -->
+    <section class="featured">
+        <h2>Our Services</h2>
+        <div class="featured-content">
+            <div class="item">
+                <img src="images/crop1.jpg" alt="Crop Management">
+                <p>Immediate Crop Disease Solutions</p>
+            </div>
+            <div class="item">
+                <img src="images/tractor.jpg" alt="Tractor Services">
+                <p>Tractor and Equipment Rental</p>
+            </div>
+            <div class="item">
+                <img src="images/weather.jpg" alt="Weather Forecast">
+                <p>Weather Tracking & Alerts</p>
+            </div>
+            <div class="item">
+                <img src="images/seeds.jpg" alt="Ulavar Santhai">
+                <p>Ulavar Santhai - Vegetables/Fruits</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Crop&Carry. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Button Redirection and Logout -->
+    <script>
+        document.getElementById('dashboard-btn').addEventListener('click', function() {
+            window.location.href = 'dashboard.html'; // Redirects to the 'dashboard.html' page
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            window.location.href = 'logout.html'; // Redirects to the 'logout.html' page or logs out the user
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

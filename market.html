@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market - FarmConnect</title>
+  <link rel="stylesheet" href="market.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      background-color: #4CAF50;
+      padding: 15px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .search-container {
+      margin: 20px;
+      text-align: center;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 50%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .market {
+      padding: 20px;
+      background-color: white;
+    }
+
+    .category {
+      margin-bottom: 40px;
+    }
+
+    .category h2 {
+      margin-top: 20px;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .market-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .market-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .market-item p {
+      margin: 10px 0;
+    }
+
+    .market-item input[type="number"] {
+      width: 50px;
+      padding: 5px;
+      margin: 5px 0;
+    }
+
+    .market-item button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .market-item button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="images/logo.png" alt="FarmConnect Logo" width="120">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="market.html" class="active">Market</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="orders.html">Orders</a></li>
+      <li><a href="transactions.html">Transactions</a></li>
+    </ul>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search for fruits, vegetables, or seeds..." onkeyup="filterItems()">
+  </div>
+
+  <!-- Market Section -->
+  <section class="market">
+    <h1>Tamil Nadu Traditional Agricultural Products</h1>
+
+    <!-- Vegetables (காய்கறிகள்) -->
+    <div class="category" id="vegetables">
+      <h2>Vegetables </h2>
+      <div class="market-grid">
+        <div class="market-item" data-category="vegetable">
+          <img src="images/tomato.jpg" alt="Tomato">
+          <p>Tomato </p>
+          <p>Price per kg: ₹30</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-tomato" onchange="updatePrice('Tomato', 30)">
+          <p>Total Price: <span id="price-tomato">₹30</span></p>
+          <button onclick="addToCart('Tomato', 30)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/brinjal.jpg" alt="Brinjal">
+          <p>Brinjal </p>
+          <p>Price per kg: ₹25</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-brinjal" onchange="updatePrice('Brinjal', 25)">
+          <p>Total Price: <span id="price-brinjal">₹25</span></p>
+          <button onclick="addToCart('Brinjal', 25)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/ladies_finger.jpg" alt="Ladies Finger">
+          <p>Ladies Finger </p>
+          <p>Price per kg: ₹35</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-ladies-finger" onchange="updatePrice('Ladies Finger', 35)">
+          <p>Total Price: <span id="price-ladies-finger">₹35</span></p>
+          <button onclick="addToCart('Ladies Finger', 35)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/onion.jpg" alt="Onion">
+          <p>Onion </p>
+          <p>Price per kg: ₹20</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-onion" onchange="updatePrice('Onion', 20)">
+          <p>Total Price: <span id="price-onion">₹20</span></p>
+          <button onclick="addToCart('Onion', 20)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/cauliflower.jpg" alt="Cauliflower">
+          <p>Cauliflower </p>
+          <p>Price per kg: ₹40</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-cauliflower" onchange="updatePrice('Cauliflower', 40)">
+          <p>Total Price: <span id="price-cauliflower">₹40</span></p>
+          <button onclick="addToCart('Cauliflower', 40)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/green_pepper.jpg" alt="Green Pepper">
+          <p>Green Pepper </p>
+          <p>Price per kg: ₹50</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-green-pepper" onchange="updatePrice('Green Pepper', 50)">
+          <p>Total Price: <span id="price-green-pepper">₹50</span></p>
+          <button onclick="addToCart('Green Pepper', 50)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/cabbage.jpg" alt="Cabbage">
+          <p>Cabbage </p>
+          <p>Price per kg: ₹30</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-cabbage" onchange="updatePrice('Cabbage', 30)">
+          <p>Total Price: <span id="price-cabbage">₹30</span></p>
+          <button onclick="addToCart('Cabbage', 30)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/carrot.jpg" alt="Carrot">
+          <p>Carrot </p>
+          <p>Price per kg: ₹40</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-carrot" onchange="updatePrice('Carrot', 40)">
+          <p>Total Price: <span id="price-carrot">₹40</span></p>
+          <button onclick="addToCart('Carrot', 40)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/beetroot.jpg" alt="Beetroot">
+          <p>Beetroot </p>
+          <p>Price per kg: ₹30</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-beetroot" onchange="updatePrice('Beetroot', 30)">
+          <p>Total Price: <span id="price-beetroot">₹30</span></p>
+          <button onclick="addToCart('Beetroot', 30)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/radish.jpg" alt="Radish">
+          <p>Radish </p>
+          <p>Price per kg: ₹25</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-radish" onchange="updatePrice('Radish', 25)">
+          <p>Total Price: <span id="price-radish">₹25</span></p>
+          <button onclick="addToCart('Radish', 25)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/turnip.jpg" alt="Turnip">
+          <p>Turnip </p>
+          <p>Price per kg: ₹30</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-turnip" onchange="updatePrice('Turnip', 30)">
+          <p>Total Price: <span id="price-turnip">₹30</span></p>
+          <button onclick="addToCart('Turnip', 30)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="vegetable">
+          <img src="images/green_bean.jpg" alt="Green Bean">
+          <p>Green Bean </p>
+          <p>Price per kg: ₹45</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-green-bean" onchange="updatePrice('Green Bean', 45)">
+          <p>Total Price: <span id="price-green-bean">₹45</span></p>
+          <button onclick="addToCart('Green Bean', 45)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fruits (பழங்கள்) -->
+    <div class="category" id="fruits">
+      <h2>Fruits </h2>
+      <div class="market-grid">
+        <div class="market-item" data-category="fruit">
+          <img src="images/mango.jpg" alt="Mango">
+          <p>Mango </p>
+          <p>Price per kg: ₹100</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-mango" onchange="updatePrice('Mango', 100)">
+          <p>Total Price: <span id="price-mango">₹100</span></p>
+          <button onclick="addToCart('Mango', 100)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="fruit">
+          <img src="images/banana.jpg" alt="Banana">
+          <p>Banana </p>
+          <p>Price per kg: ₹40</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-banana" onchange="updatePrice('Banana', 40)">
+          <p>Total Price: <span id="price-banana">₹40</span></p>
+          <button onclick="addToCart('Banana', 40)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="fruit">
+          <img src="images/orange.jpg" alt="Orange">
+          <p>Orange </p>
+          <p>Price per kg: ₹60</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-orange" onchange="updatePrice('Orange', 60)">
+          <p>Total Price: <span id="price-orange">₹60</span></p>
+          <button onclick="addToCart('Orange', 60)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="fruit">
+          <img src="images/grapes.jpg" alt="Grapes">
+          <p>Grapes </p>
+          <p>Price per kg: ₹80</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-grapes" onchange="updatePrice('Grapes', 80)">
+          <p>Total Price: <span id="price-grapes">₹80</span></p>
+          <button onclick="addToCart('Grapes', 80)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="fruit">
+          <img src="images/pineapple.jpg" alt="Pineapple">
+          <p>Pineapple </p>
+          <p>Price per kg: ₹90</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-pineapple" onchange="updatePrice('Pineapple', 90)">
+          <p>Total Price: <span id="price-pineapple">₹90</span></p>
+          <button onclick="addToCart('Pineapple', 90)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="fruit">
+          <img src="images/guava.jpg" alt="Guava">
+          <p>Guava </p>
+          <p>Price per kg: ₹70</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-guava" onchange="updatePrice('Guava', 70)">
+          <p>Total Price: <span id="price-guava">₹70</span></p>
+          <button onclick="addToCart('Guava', 70)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tubers (கிழங்கு) -->
+    <div class="category" id="tubers">
+      <h2>Tubers</h2>
+      <div class="market-grid">
+        <div class="market-item" data-category="kilangu">
+          <img src="images/potato.jpg" alt="Potato">
+          <p>Potato </p>
+          <p>Price per kg: ₹25</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-potato" onchange="updatePrice('Potato', 25)">
+          <p>Total Price: <span id="price-potato">₹25</span></p>
+          <button onclick="addToCart('Potato', 25)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="kilangu">
+          <img src="images/sweet_potato.jpg" alt="Sweet Potato">
+          <p>Sweet Potato</p>
+          <p>Price per kg: ₹30</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-sweet-potato" onchange="updatePrice('Sweet Potato', 30)">
+          <p>Total Price: <span id="price-sweet-potato">₹30</span></p>
+          <button onclick="addToCart('Sweet Potato', 30)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="kilangu">
+          <img src="images/yam.jpg" alt="Yam">
+          <p>Yam </p>
+          <p>Price per kg: ₹35</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-yam" onchange="updatePrice('Yam', 35)">
+          <p>Total Price: <span id="price-yam">₹35</span></p>
+          <button onclick="addToCart('Yam', 35)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="kilangu">
+          <img src="images/arrowroot.jpg" alt="Arrowroot">
+          <p>Arrowroot </p>
+          <p>Price per kg: ₹50</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-arrowroot" onchange="updatePrice('Arrowroot', 50)">
+          <p>Total Price: <span id="price-arrowroot">₹50</span></p>
+          <button onclick="addToCart('Arrowroot', 50)">Add to Cart</button>
+        </div>
+        <div class="market-item" data-category="kilangu">
+          <img src="images/tapioca.jpg" alt="Tapioca">
+          <p>Tapioca </p>
+          <p>Price per kg: ₹40</p>
+          <input type="number" min="1" max="10" value="1" id="quantity-tapioca" onchange="updatePrice('Tapioca', 40)">
+          <p>Total Price: <span id="price-tapioca">₹40</span></p>
+          <button onclick="addToCart('Tapioca', 40)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+     function filterItems() {
+      const input = document.getElementById('search').value.toLowerCase();
+      const items = document.querySelectorAll('.market-item');
+
+      items.forEach(item => {
+        const name = item.querySelector('p').innerText.toLowerCase();
+        item.style.display = name.includes(input) ? '' : 'none';
+      });
+    }
+
+    function addToCart(item, price) {
+      const quantity = document.getElementById(`quantity-${item.toLowerCase().replace(/ /g, '-')}`).value;
+      const totalPrice = price * quantity;
+
+      // Create cart item object
+      const cartItem = {
+        name: item,
+        price: price,
+        quantity: parseInt(quantity),
+        image: document.querySelector(`img[alt="${item}"]`).src
+      };
+
+      // Get cart from localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(cartItem);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`${item} added to cart at ₹${totalPrice}`);
+    }
+
+    function updatePrice(item, pricePerKg) {
+      const quantity = document.getElementById(`quantity-${item.toLowerCase().replace(/ /g, '-')}`).value;
+      const totalPrice = pricePerKg * quantity;
+      document.getElementById(`price-${item.toLowerCase().replace(/ /g, '-')}`).innerText = `₹${totalPrice}`;
+    }
+  </script>
+</body>
+</html>

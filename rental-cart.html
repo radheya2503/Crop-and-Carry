@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Rental Cart - FarmConnect</title>
+    <link rel="stylesheet" href="rental.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+
+        .cart-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-details img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #4CAF50;
+            margin-left: auto;
+        }
+
+        .quantity-input {
+            width: 50px;
+            margin-left: 15px;
+        }
+
+        .remove-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .remove-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .back-link {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Rental Cart</h1>
+    </header>
+
+    <nav>
+        <a href="rental.html">Back</a>
+        <a href="rental-order.html">Rental Order</a>
+        <a href="rental-transactions.html">Rental Transactions</a>
+        <div class="search-container">
+            <input type="text" id="search-bar-cart" placeholder="Search items...">
+            <button onclick="searchCart()">Search</button>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <h2>Items in Your Cart</h2>
+        <div id="cart-items"></div>
+        <p><strong>Total Cost:</strong> ₹<span id="total-cost">0</span></p>
+        <button class="checkout-button" onclick="checkout()">Proceed to Checkout</button>
+        <button class="checkout-button" onclick="updateCart()">Update Cart</button>
+    </div>
+
+    <div class="back-link">
+        <a href="rental.html">← Back to Rental Services</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FarmConnect. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchCart() {
+            const query = document.getElementById('search-bar-cart').value.toLowerCase();
+            const items = document.querySelectorAll('.cart-item');
+
+            items.forEach(item => {
+                const title = item.querySelector('.item-details div').innerText.toLowerCase();
+                item.style.display = title.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('rentalCart')) || [];
+            const cartItemsDiv = document.getElementById('cart-items');
+            let totalCost = 0;
+
+            cartItemsDiv.innerHTML = ''; // Clear previous items
+
+            cart.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="item-details">
+                        <img src="images/${item.equipment.toLowerCase().replace(' ', '-')}.jpg" alt="${item.equipment}">
+                        <div>${item.equipment}:</div>
+                        <input type="number" class="quantity-input" value="${item.durationValue}" min="1" onchange="updateQuantity(${index}, this.value, ${item.pricePerHour})">
+                    </div>
+                    <div class="item-price">₹${item.cost.toFixed(2)}</div>
+                    <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+                `;
+                cartItemsDiv.appendChild(div);
+                totalCost += item.cost; // Ensure this adds the correct cost
+            });
+
+            document.getElementById('total-cost').textContent = totalCost.toFixed(2); // Update total cost display
+        }
+
+        function updateQuantity(index, quantity, pricePerHour) {
+            const cart = JSON.parse(localStorage.getItem('rentalCart')) || [];
+            const item = cart[index];
+            item.durationValue = quantity;
+            item.cost = pricePerHour * quantity; // Calculate cost based on pricePerHour
+            localStorage.setItem('rentalCart', JSON.stringify(cart));
+            loadCart(); // Reload cart to update the total cost
+        }
+
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem('rentalCart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('rentalCart', JSON.stringify(cart));
+            loadCart(); // Reload cart to reflect changes
+        }
+
+        function updateCart() {
+            // Redirect back to rental page to add more items without removing existing ones
+            window.location.href = 'rental.html';
+        }
+
+        function checkout() {
+            alert('Proceeding to checkout...');
+            // Implement checkout logic here
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

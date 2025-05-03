@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Services - FarmConnect</title>
+    <link rel="stylesheet" href="rental.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+
+        .rental-equipment {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .equipment-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .equipment-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .back-link {
+            text-align: center;
+            margin: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rental Services</h1>
+        <p>Rent tractors and other modern farming equipment.</p>
+    </header>
+
+    <nav>
+        <a href="rental-cart.html">Rental Cart</a>
+        <a href="rental-order.html">Rental Order</a>
+        <a href="rental-transactions.html">Rental Transactions</a>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search equipment...">
+            <button onclick="searchEquipment()">Search</button>
+        </div>
+    </nav>
+
+    <section class="rental-equipment">
+        <!-- Equipment Cards -->
+        <div class="equipment-card">
+            <img src="images/tractor.jpg" alt="Tractor">
+            <h2>Tractor</h2>
+            <p><strong>Description:</strong> High-power tractors for plowing, tilling, and hauling.</p>
+            <p><strong>Rent:</strong> ₹300/hour (₹2400/day)</p>
+            <button onclick="rentEquipment('Tractor', 300)">Rent Now</button>
+        </div>
+        <div class="equipment-card">
+            <img src="images/jcb.jpg" alt="JCB">
+            <h2>JCB</h2>
+            <p><strong>Description:</strong> Excavators for digging, landscaping, and construction.</p>
+            <p><strong>Rent:</strong> ₹450/hour (₹3600/day)</p>
+            <button onclick="rentEquipment('JCB', 450)">Rent Now</button>
+        </div>
+        <div class="equipment-card">
+            <img src="images/harvester.jpg" alt="Harvester">
+            <h2>Harvester</h2>
+            <p><strong>Description:</strong> Combine harvesters for efficient crop harvesting.</p>
+            <p><strong>Rent:</strong> ₹300/hour (₹2400/day)</p>
+            <button onclick="rentEquipment('Harvester', 300)">Rent Now</button>
+        </div>
+        <div class="equipment-card">
+            <img src="images/seed-drill.jpg" alt="Seed Drill">
+            <h2>Seed Drill</h2>
+            <p><strong>Description:</strong> Precision seed drills for sowing seeds.</p>
+            <p><strong>Rent:</strong> ₹190/hour (₹1520/day)</p>
+            <button onclick="rentEquipment('Seed Drill', 190)">Rent Now</button>
+        </div>
+    </section>
+
+    <div class="back-link">
+        <a href="services.html">← Back to Services</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FarmConnect. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchEquipment() {
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            const cards = document.querySelectorAll('.equipment-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h2').innerText.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function rentEquipment(equipment, pricePerHour) {
+            const durationValue = prompt(`Enter the number of hours you want to rent the ${equipment}:`);
+            if (isNaN(durationValue) || durationValue <= 0) {
+                alert('Please enter a valid number.');
+                return;
+            }
+
+            const cost = pricePerHour * durationValue;
+            let cart = JSON.parse(localStorage.getItem('rentalCart')) || [];
+            const existingItem = cart.find(item => item.equipment === equipment);
+
+            if (existingItem) {
+                existingItem.durationValue += parseInt(durationValue);
+                existingItem.cost = existingItem.durationValue * pricePerHour; // Update cost
+            } else {
+                cart.push({ equipment, durationValue: parseInt(durationValue), pricePerHour, cost });
+            }
+
+            localStorage.setItem('rentalCart', JSON.stringify(cart));
+            alert(`${equipment} added to cart. Total Cost: ₹${cost}.`);
+
+            // Redirect to rental cart page
+            window.location.href = 'rental-cart.html';
+        }
+    </script>
+</body>
+</html>

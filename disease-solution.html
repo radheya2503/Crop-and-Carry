@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Solution - FarmConnect</title>
+    <link rel="stylesheet" href="disease-solution.css">
+</head>
+<body>
+    <header>
+        <h1>Disease Solution</h1>
+        <p>Find solutions for common crop diseases and pests in Tamil Nadu.</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for a disease...">
+        </div>
+    </header>
+
+    <section class="disease-solutions">
+        <!-- Example Diseases -->
+        <div class="disease-card">
+            <h2>Paddy Blast</h2>
+            <img src="images/paddy-blast.jpg" alt="Paddy Blast">
+            <p><strong>Symptoms:</strong> Spindle-shaped lesions on leaves, nodes, and panicles.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides like tricyclazole.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Paddy Brown Spot</h2>
+            <img src="images/paddy-brown-spot.jpg" alt="Paddy Brown Spot">
+            <p><strong>Symptoms:</strong> Small, oval brown spots on leaves and grains.</p>
+            <p><strong>Solution:</strong> Use disease-free seeds and apply mancozeb fungicide.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Corn Smut</h2>
+            <img src="images/corn-smut.jpg" alt="Corn Smut">
+            <p><strong>Symptoms:</strong> Large, gray galls form on corn ears and leaves.</p>
+            <p><strong>Solution:</strong> Remove infected plants and avoid wounding plants during growth.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Wheat Rust</h2>
+            <img src="images/wheat-rust.jpg" alt="Wheat Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules appear on leaves and stems.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides like triadimefon.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Banana Black Sigatoka</h2>
+            <img src="images/banana-sigatoka.jpg" alt="Banana Black Sigatoka">
+            <p><strong>Symptoms:</strong> Dark streaks on leaves that turn into necrotic patches.</p>
+            <p><strong>Solution:</strong> Apply systemic fungicides and remove infected leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Late Blight</h2>
+            <img src="images/potato-late-blight.jpg" alt="Potato Late Blight">
+            <p><strong>Symptoms:</strong> Dark spots on leaves that spread and kill the plant.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply copper-based fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grapevine Downy Mildew</h2>
+            <img src="images/grapevine-downy-mildew.jpg" alt="Grapevine Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots on leaves, with white downy growth underneath.</p>
+            <p><strong>Solution:</strong> Use fungicides like mancozeb and ensure good air circulation.</p>
+        </div>
+
+        <!-- Additional Diseases -->
+        <div class="disease-card">
+            <h2>Tomato Blight</h2>
+            <img src="images/tomato-blight.jpg" alt="Tomato Blight">
+            <p><strong>Symptoms:</strong> Dark spots on leaves and stems, wilting of plants.</p>
+            <p><strong>Solution:</strong> Rotate crops and use resistant varieties.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Onion Downy Mildew</h2>
+            <img src="images/onion-downy-mildew.jpg" alt="Onion Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellowish leaves with grayish fungal growth.</p>
+            <p><strong>Solution:</strong> Use fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Carrot Root Fly</h2>
+            <img src="images/carrot-root-fly.jpg" alt="Carrot Root Fly">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth of carrot plants.</p>
+            <p><strong>Solution:</strong> Use insect barriers and rotate crops.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Apple Scab</h2>
+            <img src="images/apple-scab.jpg" alt="Apple Scab">
+            <p><strong>Symptoms:</strong> Olive-green spots on leaves and fruit.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove fallen leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Leaf Curl</h2>
+            <img src="images/peach-leaf-curl.jpg" alt="Peach Leaf Curl">
+            <p><strong>Symptoms:</strong> Distorted and curled leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and prune affected branches.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Cucumber Mosaic Virus</h2>
+            <img src="images/cucumber-mosaic-virus.jpg" alt="Cucumber Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Control aphids and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Fusarium Wilt</h2>
+            <img src="images/fusarium-wilt.jpg" alt="Fusarium Wilt">
+            <p><strong>Symptoms:</strong> Yellowing and wilting of leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Chickpea Ascochyta Blight</h2>
+            <img src="images/chickpea-ascochyta-blight.jpg" alt="Chickpea Ascochyta Blight">
+            <p><strong>Symptoms:</strong> Water-soaked lesions on leaves and stems.</p>
+            <p><strong>Solution:</strong> Use disease-free seeds and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Rice Yellow Mottle Virus</h2>
+            <img src="images/rice-yellow-mottle-virus.jpg" alt="Rice Yellow Mottle Virus">
+            <p><strong>Symptoms:</strong> Yellow mottling and stunting of rice plants.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and control weeds.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Barley Yellow Dwarf Virus</h2>
+            <img src="images/barley-yellow-dwarf-virus.jpg" alt="Barley Yellow Dwarf Virus">
+            <p><strong>Symptoms:</strong> Yellowing and stunted growth of barley.</p>
+            <p><strong>Solution:</strong> Control aphids and use resistant varieties.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Black Rot of Cabbage</h2>
+            <img src="images/black-rot-cabbage.jpg" alt="Black Rot of Cabbage">
+            <p><strong>Symptoms:</strong> Yellowing of leaves with black veins.</p>
+            <p><strong>Solution:</strong> Rotate crops and use disease-resistant varieties.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Powdery Mildew</h2>
+            <img src="images/powdery-mildew.jpg" alt="Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Use fungicides and ensure good air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Root Knot Nematodes</h2>
+            <img src="images/root-knot-nematodes.jpg" alt="Root Knot Nematodes">
+            <p><strong>Symptoms:</strong> Galls on roots and stunted plant growth.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Mosaic Virus</h2>
+            <img src="images/tomato-mosaic-virus.jpg" alt="Tomato Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and yellowing.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control aphids.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Sunflower Rust</h2>
+            <img src="images/sunflower-rust.jpg" alt="Sunflower Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Strawberry Powdery Mildew</h2>
+            <img src="images/strawberry-powdery-mildew.jpg" alt="Strawberry Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves and fruit.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Blueberry Scorch Virus</h2>
+            <img src="images/blueberry-scorch-virus.jpg" alt="Blueberry Scorch Virus">
+            <p><strong>Symptoms:</strong> Leaf scorch and stunted growth.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control aphids.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peanut Leaf Spot</h2>
+            <img src="images/peanut-leaf-spot.jpg" alt="Peanut Leaf Spot">
+            <p><strong>Symptoms:</strong> Dark lesions on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Sweet Potato Weevil</h2>
+            <img src="images/sweet-potato-weevil.jpg" alt="Sweet Potato Weevil">
+            <p><strong>Symptoms:</strong> Holes in tubers and wilting plants.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Celery Blight</h2>
+            <img src="images/celery-blight.jpg" alt="Celery Blight">
+            <p><strong>Symptoms:</strong> Water-soaked spots on leaves.</p>
+            <p><strong>Solution:</strong> Use fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Scab</h2>
+            <img src="images/potato-scab.jpg" alt="Potato Scab">
+            <p><strong>Symptoms:</strong> Rough, scabby spots on potato skins.</p>
+            <p><strong>Solution:</strong> Use clean seed potatoes and avoid excessive soil moisture.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Asparagus Beetle</h2>
+            <img src="images/asparagus-beetle.jpg" alt="Asparagus Beetle">
+            <p><strong>Symptoms:</strong> Chewed leaves and wilting plants.</p>
+            <p><strong>Solution:</strong> Handpick beetles and use insecticidal soap.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Black Leg of Potato</h2>
+            <img src="images/black-leg-potato.jpg" alt="Black Leg of Potato">
+            <p><strong>Symptoms:</strong> Dark, water-soaked lesions on stems.</p>
+            <p><strong>Solution:</strong> Use certified seed potatoes and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Leaf Hoppers</h2>
+            <img src="images/leaf-hoppers.jpg" alt="Leaf Hoppers">
+            <p><strong>Symptoms:</strong> Yellowing and wilting of plants.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and row covers.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Flea Beetles</h2>
+            <img src="images/flea-beetles.jpg" alt="Flea Beetles">
+            <p><strong>Symptoms:</strong> Tiny holes in leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Use row covers and insecticidal soap.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Spider Mites</h2>
+            <img src="images/spider-mites.jpg" alt="Spider Mites">
+            <p><strong>Symptoms:</strong> Yellowing leaves and webbing on plants.</p>
+            <p><strong>Solution:</strong> Use miticides and increase humidity.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Whiteflies</h2>
+            <img src="images/whiteflies.jpg" alt="Whiteflies">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and yellow sticky traps.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Leaf Miners</h2>
+            <img src="images/leaf-miners.jpg" alt="Leaf Miners">
+            <p><strong>Symptoms:</strong> Tunnels in leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and remove affected leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Root Maggots</h2>
+            <img src="images/root-maggots.jpg" alt="Root Maggots">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth of seedlings.</p>
+            <p><strong>Solution:</strong> Use row covers and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Hornworm</h2>
+            <img src="images/tomato-hornworm.jpg" alt="Tomato Hornworm">
+            <p><strong>Symptoms:</strong> Chewed leaves and visible caterpillars.</p>
+            <p><strong>Solution:</strong> Handpick and use insecticidal soap.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Brassica Downy Mildew</h2>
+            <img src="images/brassica-downy-mildew.jpg" alt="Brassica Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots on leaves and downy growth underneath.</p>
+            <p><strong>Solution:</strong> Apply fungicides and ensure good air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Tuber Moth</h2>
+            <img src="images/potato-tuber-moth.jpg" alt="Potato Tuber Moth">
+            <p><strong>Symptoms:</strong> Holes in tubers and wilting plants.</p>
+            <p><strong>Solution:</strong> Use insecticides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Fusarium Head Blight</h2>
+            <img src="images/fusarium-head-blight.jpg" alt="Fusarium Head Blight">
+            <p><strong>Symptoms:</strong> Bleached heads and shriveled kernels.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Pea Weevil</h2>
+            <img src="images/pea-weevil.jpg" alt="Pea Weevil">
+            <p><strong>Symptoms:</strong> Holes in pods and stunted growth.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Raspberry Cane Blight</h2>
+            <img src="images/raspberry-cane-blight.jpg" alt="Raspberry Cane Blight">
+            <p><strong>Symptoms:</strong> Dark lesions on canes and wilting.</p>
+            <p><strong>Solution:</strong> Prune affected canes and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grape Berry Moth</h2>
+            <img src="images/grape-berry-moth.jpg" alt="Grape Berry Moth">
+            <p><strong>Symptoms:</strong> Holes in grapes and premature fruit drop.</p>
+            <p><strong>Solution:</strong> Use pheromone traps and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Snap Bean Rust</h2>
+            <img src="images/snap-bean-rust.jpg" alt="Snap Bean Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Sweet Corn Borer</h2>
+            <img src="images/sweet-corn-borer.jpg" alt="Sweet Corn Borer">
+            <p><strong>Symptoms:</strong> Holes in ears and stunted growth.</p>
+            <p><strong>Solution:</strong> Use insecticides and trap crops.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Fruitworm</h2>
+            <img src="images/tomato-fruitworm.jpg" alt="Tomato Fruitworm">
+            <p><strong>Symptoms:</strong> Chewed fruit and wilting plants.</p>
+            <p><strong>Solution:</strong> Handpick and use insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Melon Aphid</h2>
+            <img src="images/melon-aphid.jpg" alt="Melon Aphid">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Celery Fly</h2>
+            <img src="images/celery-fly.jpg" alt="Celery Fly">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth.</p>
+            <p><strong>Solution:</strong> Use insecticides and row covers.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Hops Downy Mildew</h2>
+            <img src="images/hops-downy-mildew.jpg" alt="Hops Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellowing leaves and downy growth.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Chili Pepper Bacterial Spot</h2>
+            <img src="images/chili-pepper-bacterial-spot.jpg" alt="Chili Pepper Bacterial Spot">
+            <p><strong>Symptoms:</strong> Water-soaked spots on leaves and fruit.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Asparagus Rust</h2>
+            <img src="images/asparagus-rust.jpg" alt="Asparagus Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules on ferns.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grapevine Leafroll Virus</h2>
+            <img src="images/grapevine-leafroll-virus.jpg" alt="Grapevine Leafroll Virus">
+            <p><strong>Symptoms:</strong> Yellowing leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control insect vectors.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Bell Pepper Sunscald</h2>
+            <img src="images/bell-pepper-sunscald.jpg" alt="Bell Pepper Sunscald">
+            <p><strong>Symptoms:</strong> Sunburned spots on fruit.</p>
+            <p><strong>Solution:</strong> Provide shade and adequate watering.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Walnut Blight</h2>
+            <img src="images/walnut-blight.jpg" alt="Walnut Blight">
+            <p><strong>Symptoms:</strong> Dark lesions on leaves and husks.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove fallen debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Blackfly</h2>
+            <img src="images/blackfly.jpg" alt="Blackfly">
+            <p><strong>Symptoms:</strong> Wilting and yellowing of plants.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Curly Top Virus</h2>
+            <img src="images/curly-top-virus.jpg" alt="Curly Top Virus">
+            <p><strong>Symptoms:</strong> Curling and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Control leafhoppers and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Indian Mustard White Rust</h2>
+            <img src="images/indian-mustard-white-rust.jpg" alt="Indian Mustard White Rust">
+            <p><strong>Symptoms:</strong> White, powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and rotate crops.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Blueberry Fruit Drop</h2>
+            <img src="images/blueberry-fruit-drop.jpg" alt="Blueberry Fruit Drop">
+            <p><strong>Symptoms:</strong> Premature dropping of blueberries.</p>
+            <p><strong>Solution:</strong> Ensure proper watering and fertilization.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Tree Borer</h2>
+            <img src="images/peach-tree-borer.jpg" alt="Peach Tree Borer">
+            <p><strong>Symptoms:</strong> Wilting and dieback of branches.</p>
+            <p><strong>Solution:</strong> Use insecticides and remove affected bark.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Psyllid</h2>
+            <img src="images/potato-psyllid.jpg" alt="Potato Psyllid">
+            <p><strong>Symptoms:</strong> Leaf curling and stunted growth.</p>
+            <p><strong>Solution:</strong> Control with insecticides and remove weeds.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grape Phylloxera</h2>
+            <img src="images/grape-phylloxera.jpg" alt="Grape Phylloxera">
+            <p><strong>Symptoms:</strong> Galls on roots and yellowing leaves.</p>
+            <p><strong>Solution:</strong> Use resistant rootstocks and control with insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Yellow Leaf Curl Virus</h2>
+            <img src="images/tomato-yellow-leaf-curl-virus.jpg" alt="Tomato Yellow Leaf Curl Virus">
+            <p><strong>Symptoms:</strong> Curling and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Control whiteflies and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Melon Fruit Fly</h2>
+            <img src="images/melon-fruit-fly.jpg" alt="Melon Fruit Fly">
+            <p><strong>Symptoms:</strong> Holes in fruit and wilting plants.</p>
+            <p><strong>Solution:</strong> Use traps and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Sweet Potato Leaf Spot</h2>
+            <img src="images/sweet-potato-leaf-spot.jpg" alt="Sweet Potato Leaf Spot">
+            <p><strong>Symptoms:</strong> Dark spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Winter Wheat Fusarium Head Blight</h2>
+            <img src="images/winter-wheat-fusarium-head-blight.jpg" alt="Winter Wheat Fusarium Head Blight">
+            <p><strong>Symptoms:</strong> Bleached heads and shriveled kernels.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Blackberry Rust</h2>
+            <img src="images/blackberry-rust.jpg" alt="Blackberry Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Cabbage Looper</h2>
+            <img src="images/cabbage-looper.jpg" alt="Cabbage Looper">
+            <p><strong>Symptoms:</strong> Chewed leaves and visible caterpillars.</p>
+            <p><strong>Solution:</strong> Handpick and use insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Rice Stem Borer</h2>
+            <img src="images/rice-stem-borer.jpg" alt="Rice Stem Borer">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Leafroll Virus</h2>
+            <img src="images/potato-leafroll-virus.jpg" alt="Potato Leafroll Virus">
+            <p><strong>Symptoms:</strong> Curling and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Control aphids and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Brussels Sprouts Aphid</h2>
+            <img src="images/brussels-sprouts-aphid.jpg" alt="Brussels Sprouts Aphid">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Turnip Mosaic Virus</h2>
+            <img src="images/turnip-mosaic-virus.jpg" alt="Turnip Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control aphids.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Spotted Wilt Virus</h2>
+            <img src="images/tomato-spotted-wilt-virus.jpg" alt="Tomato Spotted Wilt Virus">
+            <p><strong>Symptoms:</strong> Yellow rings and wilting.</p>
+            <p><strong>Solution:</strong> Control thrips and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Hemp Downy Mildew</h2>
+            <img src="images/hemp-downy-mildew.jpg" alt="Hemp Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots and downy growth on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and ensure good air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Radish Root Maggot</h2>
+            <img src="images/radish-root-maggot.jpg" alt="Radish Root Maggot">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth.</p>
+            <p><strong>Solution:</strong> Use row covers and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Almond Leaf Scorch</h2>
+            <img src="images/almond-leaf-scorch.jpg" alt="Almond Leaf Scorch">
+            <p><strong>Symptoms:</strong> Yellowing and browning of leaf edges.</p>
+            <p><strong>Solution:</strong> Remove infected branches and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Blackcurrant Gall Mite</h2>
+            <img src="images/blackcurrant-gall-mite.jpg" alt="Blackcurrant Gall Mite">
+            <p><strong>Symptoms:</strong> Distorted leaves and galls.</p>
+            <p><strong>Solution:</strong> Prune affected areas and use insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Chickpea Mosaic Virus</h2>
+            <img src="images/chickpea-mosaic-virus.jpg" alt="Chickpea Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control aphids.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Pea Aphid</h2>
+            <img src="images/pea-aphid.jpg" alt="Pea Aphid">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Fusarium Wilt of Tomato</h2>
+            <img src="images/fusarium-wilt-tomato.jpg" alt="Fusarium Wilt of Tomato">
+            <p><strong>Symptoms:</strong> Yellowing and wilting of leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Root Rot</h2>
+            <img src="images/root-rot.jpg" alt="Root Rot">
+            <p><strong>Symptoms:</strong> Wilting and yellowing of plants.</p>
+            <p><strong>Solution:</strong> Improve drainage and avoid overwatering.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Late Blight of Tomato</h2>
+            <img src="images/late-blight-tomato.jpg" alt="Late Blight of Tomato">
+            <p><strong>Symptoms:</strong> Dark spots on leaves and fruit.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Rhubarb Curly Top Virus</h2>
+            <img src="images/rhubarb-curly-top-virus.jpg" alt="Rhubarb Curly Top Virus">
+            <p><strong>Symptoms:</strong> Curling and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Control leafhoppers and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Horse Chestnut Leaf Miner</h2>
+            <img src="images/horse-chestnut-leaf-miner.jpg" alt="Horse Chestnut Leaf Miner">
+            <p><strong>Symptoms:</strong> Tunnels in leaves and browning.</p>
+            <p><strong>Solution:</strong> Remove affected leaves and apply insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Spinach Downy Mildew</h2>
+            <img src="images/spinach-downy-mildew.jpg" alt="Spinach Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots and downy growth.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Walnut Anthracnose</h2>
+            <img src="images/walnut-anthracnose.jpg" alt="Walnut Anthracnose">
+            <p><strong>Symptoms:</strong> Dark lesions on leaves and husks.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove fallen debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Red Spider Mite</h2>
+            <img src="images/red-spider-mite.jpg" alt="Red Spider Mite">
+            <p><strong>Symptoms:</strong> Yellowing leaves and webbing.</p>
+            <p><strong>Solution:</strong> Use miticides and increase humidity.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Leaf Spot of Onion</h2>
+            <img src="images/leaf-spot-onion.jpg" alt="Leaf Spot of Onion">
+            <p><strong>Symptoms:</strong> Dark spots on leaves.</p>
+            <p><strong>Solution:</strong> Use fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Sweet Corn Rust</h2>
+            <img src="images/sweet-corn-rust.jpg" alt="Sweet Corn Rust">
+            <p><strong>Symptoms:</strong> Reddish-brown pustules on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Cherry Leaf Spot</h2>
+            <img src="images/cherry-leaf-spot.jpg" alt="Cherry Leaf Spot">
+            <p><strong>Symptoms:</strong> Dark spots on leaves and premature leaf drop.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove fallen leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grapevine Trunk Disease</h2>
+            <img src="images/grapevine-trunk-disease.jpg" alt="Grapevine Trunk Disease">
+            <p><strong>Symptoms:</strong> Dieback of canes and trunk lesions.</p>
+            <p><strong>Solution:</strong> Prune affected areas and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Cabbage Root Maggot</h2>
+            <img src="images/cabbage-root-maggot.jpg" alt="Cabbage Root Maggot">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth of cabbage.</p>
+            <p><strong>Solution:</strong> Use row covers and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Carrot Rust Fly</h2>
+            <img src="images/carrot-rust-fly.jpg" alt="Carrot Rust Fly">
+            <p><strong>Symptoms:</strong> Wilting and stunted growth of carrots.</p>
+            <p><strong>Solution:</strong> Use row covers and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Fruit Fly</h2>
+            <img src="images/peach-fruit-fly.jpg" alt="Peach Fruit Fly">
+            <p><strong>Symptoms:</strong> Holes in fruit and premature fruit drop.</p>
+            <p><strong>Solution:</strong> Use traps and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Yellowing of Leaf Tips</h2>
+            <img src="images/yellowing-leaf-tips.jpg" alt="Yellowing of Leaf Tips">
+            <p><strong>Symptoms:</strong> Yellowing at the tips of leaves.</p>
+            <p><strong>Solution:</strong> Adjust watering and nutrient levels.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Fungal Leaf Spot</h2>
+            <img src="images/fungal-leaf-spot.jpg" alt="Fungal Leaf Spot">
+            <p><strong>Symptoms:</strong> Brown spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Wilt</h2>
+            <img src="images/tomato-wilt.jpg" alt="Tomato Wilt">
+            <p><strong>Symptoms:</strong> Wilting and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and improve drainage.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Black Leg</h2>
+            <img src="images/potato-black-leg.jpg" alt="Potato Black Leg">
+            <p><strong>Symptoms:</strong> Dark lesions on stems and wilting.</p>
+            <p><strong>Solution:</strong> Use certified seed potatoes and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Apple Powdery Mildew</h2>
+            <img src="images/apple-powdery-mildew.jpg" alt="Apple Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Raspberry Fruit Fly</h2>
+            <img src="images/raspberry-fruit-fly.jpg" alt="Raspberry Fruit Fly">
+            <p><strong>Symptoms:</strong> Holes in fruit and premature fruit drop.</p>
+            <p><strong>Solution:</strong> Use traps and insecticides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Squash Vine Borer</h2>
+            <img src="images/squash-vine-borer.jpg" alt="Squash Vine Borer">
+            <p><strong>Symptoms:</strong> Wilting and dying squash plants.</p>
+            <p><strong>Solution:</strong> Use insecticides and remove affected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Black Bean Aphid</h2>
+            <img src="images/black-bean-aphid.jpg" alt="Black Bean Aphid">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Pea Seed Borne Mosaic Virus</h2>
+            <img src="images/pea-seed-borne-mosaic-virus.jpg" alt="Pea Seed Borne Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Use disease-free seeds and remove infected plants.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Radish Downy Mildew</h2>
+            <img src="images/radish-downy-mildew.jpg" alt="Radish Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots and downy growth on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Pith Necrosis</h2>
+            <img src="images/tomato-pith-necrosis.jpg" alt="Tomato Pith Necrosis">
+            <p><strong>Symptoms:</strong> Wilting and hollow stems.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and improve drainage.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Brassica Cabbage Aphid</h2>
+            <img src="images/brassica-cabbage-aphid.jpg" alt="Brassica Cabbage Aphid">
+            <p><strong>Symptoms:</strong> Yellowing leaves and sticky residue.</p>
+            <p><strong>Solution:</strong> Use insecticidal soap and natural predators.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grapevine Botrytis Bunch Rot</h2>
+            <img src="images/grapevine-botrytis-bunch-rot.jpg" alt="Grapevine Botrytis Bunch Rot">
+            <p><strong>Symptoms:</strong> Gray mold on grapes and wilting.</p>
+            <p><strong>Solution:</strong> Improve air circulation and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Black Rot of Grapes</h2>
+            <img src="images/black-rot-grapes.jpg" alt="Black Rot of Grapes">
+            <p><strong>Symptoms:</strong> Black lesions on leaves and fruit.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Tuber Blight</h2>
+            <img src="images/potato-tuber-blight.jpg" alt="Potato Tuber Blight">
+            <p><strong>Symptoms:</strong> Dark lesions on tubers.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Scab</h2>
+            <img src="images/peach-scab.jpg" alt="Peach Scab">
+            <p><strong>Symptoms:</strong> Dark lesions on fruit and leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove fallen debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Spinach Leaf Spot</h2>
+            <img src="images/spinach-leaf-spot.jpg" alt="Spinach Leaf Spot">
+            <p><strong>Symptoms:</strong> Dark spots on leaves.</p>
+            <p><strong>Solution:</strong> Use fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Strawberry Leaf Spot</h2>
+            <img src="images/strawberry-leaf-spot.jpg" alt="Strawberry Leaf Spot">
+            <p><strong>Symptoms:</strong> Dark spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected leaves.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Spinach Mosaic Virus</h2>
+            <img src="images/spinach-mosaic-virus.jpg" alt="Spinach Mosaic Virus">
+            <p><strong>Symptoms:</strong> Mottled leaves and stunted growth.</p>
+            <p><strong>Solution:</strong> Remove infected plants and control aphids.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Barley Scald</h2>
+            <img src="images/barley-scald.jpg" alt="Barley Scald">
+            <p><strong>Symptoms:</strong> Brown lesions on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and use resistant varieties.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Wheat Yellow Rust</h2>
+            <img src="images/wheat-yellow-rust.jpg" alt="Wheat Yellow Rust">
+            <p><strong>Symptoms:</strong> Yellow pustules on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Bacterial Wilt</h2>
+            <img src="images/tomato-bacterial-wilt.jpg" alt="Tomato Bacterial Wilt">
+            <p><strong>Symptoms:</strong> Wilting and yellowing of leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and improve soil drainage.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Cucumber Beetle</h2>
+            <img src="images/cucumber-beetle.jpg" alt="Cucumber Beetle">
+            <p><strong>Symptoms:</strong> Chewed leaves and wilting plants.</p>
+            <p><strong>Solution:</strong> Use insecticides and row covers.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Early Blight</h2>
+            <img src="images/tomato-early-blight.jpg" alt="Tomato Early Blight">
+            <p><strong>Symptoms:</strong> Dark spots on leaves and stems.</p>
+            <p><strong>Solution:</strong> Apply fungicides and practice crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Tree Decline</h2>
+            <img src="images/peach-tree-decline.jpg" alt="Peach Tree Decline">
+            <p><strong>Symptoms:</strong> Yellowing leaves and dieback.</p>
+            <p><strong>Solution:</strong> Remove affected branches and improve soil health.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Beet Leafhopper</h2>
+            <img src="images/beet-leafhopper.jpg" alt="Beet Leafhopper">
+            <p><strong>Symptoms:</strong> Stunted growth and yellowing leaves.</p>
+            <p><strong>Solution:</strong> Use insecticides and control weeds.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Onion Downy Mildew</h2>
+            <img src="images/onion-downy-mildew.jpg" alt="Onion Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellowing leaves and downy growth.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peanut Bacterial Spot</h2>
+            <img src="images/peanut-bacterial-spot.jpg" alt="Peanut Bacterial Spot">
+            <p><strong>Symptoms:</strong> Water-soaked spots on leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and apply fungicides.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Carrot Downy Mildew</h2>
+            <img src="images/carrot-downy-mildew.jpg" alt="Carrot Downy Mildew">
+            <p><strong>Symptoms:</strong> Yellow spots and downy growth.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Grapevine Powdery Mildew</h2>
+            <img src="images/grapevine-powdery-mildew.jpg" alt="Grapevine Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Tomato Leaf Mold</h2>
+            <img src="images/tomato-leaf-mold.jpg" alt="Tomato Leaf Mold">
+            <p><strong>Symptoms:</strong> Dark green spots and mold on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Peach Powdery Mildew</h2>
+            <img src="images/peach-powdery-mildew.jpg" alt="Peach Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Potato Cyst Nematodes</h2>
+            <img src="images/potato-cyst-nematodes.jpg" alt="Potato Cyst Nematodes">
+            <p><strong>Symptoms:</strong> Stunted growth and yellowing leaves.</p>
+            <p><strong>Solution:</strong> Use resistant varieties and crop rotation.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Strawberry Anthracnose</h2>
+            <img src="images/strawberry-anthracnose.jpg" alt="Strawberry Anthracnose">
+            <p><strong>Symptoms:</strong> Dark spots on fruit and leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and remove infected debris.</p>
+        </div>
+
+        <div class="disease-card">
+            <h2>Hops Powdery Mildew</h2>
+            <img src="images/hops-powdery-mildew.jpg" alt="Hops Powdery Mildew">
+            <p><strong>Symptoms:</strong> White powdery spots on leaves.</p>
+            <p><strong>Solution:</strong> Apply fungicides and improve air circulation.</p>
+        </div>
+    </section>
+
+    <div class="back-link">
+        <a href="services.html">← Back to Services</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FarmConnect. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const diseaseCards = document.querySelectorAll('.disease-card');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            diseaseCards.forEach(card => {
+                const diseaseName = card.querySelector('h2').textContent.toLowerCase();
+                if (diseaseName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

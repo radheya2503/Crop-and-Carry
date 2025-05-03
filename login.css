@@ -1,0 +1,95 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    max-width: 600px; /* Reduced width */
+    background: #fff;
+    padding: 40px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Slightly smaller border radius */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 40px; /* Normalized margin */
+    font-size: 32px; /* Reduced font size to normal */
+    color: #333;
+}
+
+/* Buttons */
+.login-btn {
+    display: block;
+    width: 100%;
+    padding: 15px; /* Normalized padding */
+    margin: 20px 0; /* Reduced margin */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px; /* Moderate border radius */
+    cursor: pointer;
+    font-size: 20px; /* Reduced font size */
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+/* Input fields (applies to both email and password) */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 15px; /* Normalized padding for both email and password */
+    margin: 15px 0; /* Reduced margin */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Slightly reduced border radius */
+    font-size: 18px; /* Normalized font size */
+}
+
+/* Password container */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 24px; /* Reduced icon size */
+}
+
+/* User type selection */
+.user-type-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.user-type-selection label {
+    font-size: 18px; /* Reduced font size */
+}
+
+/* Links */
+.forgot-password {
+    display: block;
+    margin-top: 20px; /* Reduced margin */
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px; /* Normalized font size */
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

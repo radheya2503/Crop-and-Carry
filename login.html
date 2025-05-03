@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crop&Carry</title>
+    <link rel="stylesheet" href="login.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<body>
+    <!-- Login Form Section -->
+    <div class="login-container">
+        <h2>Login to Crop&Carry</h2>
+       
+        <!-- Email Login Form -->
+        <div id="email-form" class="login-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter your password" />
+                <i id="togglePassword" class="fa fa-eye"></i> <!-- Font Awesome eye icon -->
+            </div>
+            <div class="user-type-selection">
+                <label>
+                    <input type="radio" name="userType" value="customer" required> Customer
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="farmer" required> Farmer
+                </label>
+            </div>
+            <button id="submit-login" class="login-btn">Login</button>
+            <a href="#" id="forgot-password" class="forgot-password">Forgot Password?</a>
+        </div>
+    </div>
+    <script src="login.js"></script> <!-- Link to the JavaScript file -->
+</body>
+</html>

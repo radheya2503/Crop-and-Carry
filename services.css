@@ -1,0 +1,97 @@
+/* Professional Service Page Styles */
+
+/* Body Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Services Section */
+.services-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    max-width: 1200px;
+}
+
+.service-box {
+    flex: 0 1 calc(33.333% - 2rem); /* Responsive grid with 3 items per row */
+    margin: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-box img {
+    width: 80px; /* Smaller icons for a cleaner look */
+    margin-bottom: 1rem;
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.service-box p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure the body takes full height of the viewport */
+html, body {
+    height: 100%;
+}
+
+/* Set a flexbox layout for the body to ensure the footer is at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push the footer to the bottom */
+}
+
+/* Footer should stay at the bottom even if there's not enough content */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    color: white;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+    position: relative;
+    width: 100%;
+}
+

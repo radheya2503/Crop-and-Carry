@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Crop&Carry</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="images/logo.png" alt="Crop&Carry Logo" width="100">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index-after-login.html">Home</a></li>
+      <li><a href="customer-services.html">Services</a></li>
+      <li><a href="market.html">Market</a></li>
+      <li><a href="cart.html" class="active">Cart</a></li>
+      <li><a href="orders.html">Orders</a></li>
+    </ul>
+  </nav>
+
+  <!-- Cart Section -->
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+    <div id="cartItems">
+      <!-- Products will be displayed here -->
+    </div>
+    <p class="cart-total">Total: ₹<span id="totalPrice">0</span></p>
+    <button class="checkout-button">Proceed to Checkout</button>
+  </div>
+  <div class="add-more-items">
+    <a href="market.html" class="add-more-button">Add More Items</a>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
